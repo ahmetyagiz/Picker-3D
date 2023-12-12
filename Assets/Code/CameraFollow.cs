@@ -3,16 +3,8 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform _followTarget;
-    private float _offsetZ;
+    [SerializeField] private float _offsetZ;
     private Vector3 targetDir;
-
-    /// <summary>
-    /// Kameranýn baslangictaki Z'si offseti oluyor.
-    /// </summary>
-    private void Start()
-    {
-        _offsetZ = transform.position.z;
-    }
 
     void LateUpdate()
     {

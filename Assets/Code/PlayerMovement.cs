@@ -10,9 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float sideSpeed;
     [SerializeField] private float forwardSpeed;
 
-    [Header("Win Lose Panels")]
+    [Header("Lose Panel")]
     [SerializeField] private GameObject losePanel;
-    [SerializeField] private GameObject winPanel;
 
     [Header("Others")]
     [SerializeField] private GameObject pusherCube;
@@ -55,15 +54,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private bool isLoseRoutineActive;
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("CollectCheck"))
         {
-            Debug.Log("Fail Routine baþladý: " + other.gameObject.name);
             StartCoroutine(nameof(LoseRoutine));
-
 
             inCollectCheck = true;
             rb.velocity = Vector3.zero;

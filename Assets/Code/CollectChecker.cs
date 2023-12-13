@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using DG.Tweening;
 using System.Collections;
+using UnityEngine.Events;
 
 public class CollectChecker : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class CollectChecker : MonoBehaviour
     [SerializeField] private Color color;
     private bool isLevelCompleted;
     private PlayerMovement playerMovement;
+    [SerializeField] private bool isEndingChecker;
+    [SerializeField] private UnityEvent winEvent;
 
     private void Start()
     {
@@ -49,8 +52,15 @@ public class CollectChecker : MonoBehaviour
         });
 
         yield return new WaitForSeconds(1);
-        stopper.SetActive(false);
-        playerMovement.inCollectCheck = false;
 
+        if (isEndingChecker)
+        {
+            winEvent.Invoke();
+        }
+        else
+        {
+            playerMovement.inCollectCheck = false;
+        }
+        stopper.SetActive(false);
     }
 }

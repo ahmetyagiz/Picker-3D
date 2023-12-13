@@ -7,16 +7,16 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TCP2_Demo_Water
+  m_Name: Water
   m_Shader: {fileID: -6465566751694194690, guid: edd7abf643fa4bc4e8561d4c280c97cf,
     type: 3}
-  m_ShaderKeywords: TCP2_SHADOW_LIGHT_COLOR
-  m_LightmapFlags: 1
+  m_ShaderKeywords: TCP2_REFLECTIONS_FRESNEL TCP2_RIM_LIGHTING_LIGHTMASK TCP2_SHADOW_LIGHT_COLOR
+    TCP2_UV_NORMALS_FULL
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
-  stringTagMap:
-    RenderType: Transparent
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -27,7 +27,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 8, y: 8}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
@@ -45,15 +45,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _FoamTex:
-        m_Texture: {fileID: 2800000, guid: 532c9e2e0905df744860e5e5c36ada26, type: 3}
-        m_Scale: {x: 8, y: 8}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5930a2cf4b06d4747878f6bdaad8d95f, type: 3}
-        m_Scale: {x: 3, y: 3}
-        m_Offset: {x: 0, y: 0}
-    - _Mask1:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -97,17 +89,12 @@ Material:
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
-    - _DepthColorDistance: 0.5
-    - _DepthDistance: 0.87
     - _DetailNormalMapScale: 1
     - _DirectIntensityOutline: 1
-    - _DstBlend: 10
+    - _DstBlend: 0
     - _EmissionChannel: 4
-    - _FoamSmooth: 0.02
-    - _FoamSpread: 2
-    - _FoamStrength: 0.8
     - _FresnelMax: 1.5
-    - _FresnelMin: 0.77
+    - _FresnelMin: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -134,31 +121,26 @@ Material:
     - _RampBandsSmoothing: 0.1
     - _RampOffset: 0
     - _RampScale: 1
-    - _RampSmooth: 0.77
-    - _RampSmoothing: 0.596
-    - _RampThreshold: 0.798
+    - _RampSmoothing: 0.1
+    - _RampThreshold: 0.75
     - _RampType: 0
     - _ReceiveShadowsOff: 1
     - _ReflectionMapType: 0
-    - _ReflectionSmoothness: 0.486
-    - _RenderingMode: 2
-    - _RimMax: 0.97
-    - _RimMin: 0.6
+    - _ReflectionSmoothness: 0.5
+    - _RenderingMode: 0
+    - _RimMax: 1
+    - _RimMin: 0.5
     - _ShadowColorLightAtten: 1
-    - _SineCount2: 2
     - _SingleIndirectColor: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SpecularMapType: 0
-    - _SpecularRoughness: 1
-    - _SpecularToonSize: 0.707
-    - _SpecularToonSmoothness: 0.89
-    - _SpecularType: 1
+    - _SpecularRoughness: 0.5
+    - _SpecularToonSize: 0.25
+    - _SpecularToonSmoothness: 0.05
+    - _SpecularType: 0
     - _SrcBlend: 1
     - _UVSec: 0
-    - _UVWaveAmplitude: 0.05
-    - _UVWaveFrequency: 1
-    - _UVWaveSpeed: 1
     - _UseAlphaTest: 0
     - _UseEmission: 0
     - _UseFresnelReflections: 1
@@ -169,34 +151,19 @@ Material:
     - _UseOcclusion: 0
     - _UseOutline: 0
     - _UseReflections: 0
-    - _UseRim: 1
+    - _UseRim: 0
     - _UseRimLightMask: 1
     - _UseShadowTexture: 0
     - _UseSpecular: 0
-    - _WaveFrequency: 2
-    - _WaveHeight: 0.03
-    - _WaveSpeed: 1
-    - _WavesFrequency: 1
-    - _WavesHeight: 0.1
-    - _WavesSpeed: 2
-    - _ZWrite: 0
-    - __dummy__: 0
+    - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0, g: 0.7505073, b: 1, a: 0.5882353}
-    - _BumpSpeed: {r: 0.2, g: 0.2, b: 0.3, a: 0.3}
-    - _Color: {r: 0.06666667, g: 0.6666667, b: 0.92549026, a: 1}
-    - _CustomTime: {r: 0.05, g: 1, b: 2, a: 3}
-    - _DepthColor: {r: 0, g: 0.37459263, b: 0.778, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FoamColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
-    - _FoamSpeed: {r: -1, g: -1, b: -2, a: -2}
-    - _FoamTex_SC: {r: 1, g: 1, b: 0, a: 0}
+    - _BaseColor: {r: 0, g: 0.6165807, b: 1, a: 1}
+    - _Color: {r: 0.25, g: 0.587362, b: 1, a: 1}
+    - _EmissionColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MainTex_SinAnimParams: {r: 1, g: 0.05, b: 1, a: 0}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _RimColor: {r: 0, g: 0.37894726, b: 1, a: 0.078431375}
-    - _SColor: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
-    - _SpecularColor: {r: 0, g: 0.01960802, b: 1, a: 1}
-    - _WaterColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 0.8, g: 0.8, b: 0.8, a: 0.5}
+    - _SColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _SpecularColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}

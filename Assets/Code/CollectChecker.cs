@@ -10,15 +10,15 @@ public class CollectChecker : MonoBehaviour
     [SerializeField] private int collectGoal;
     [SerializeField] private GameObject bridgePlatform;
     [SerializeField] private GameObject stopper;
+    [SerializeField] private Animator _gateAnimator;
+    [SerializeField] private Color color;
     private bool isLevelCompleted;
     private PlayerMovement playerMovement;
-    [SerializeField] private Color color;
-    [SerializeField] private Color defaultColor;
 
     private void Start()
     {
         counterText.text = collectIndex + " / " + collectGoal;
-        
+        playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,6 +30,8 @@ public class CollectChecker : MonoBehaviour
 
             if (collectIndex == collectGoal && !isLevelCompleted)
             {
+                playerMovement.StopAllCoroutines();
+
                 StartCoroutine(nameof(CompleteRoutine));
             }
         }
@@ -43,11 +45,11 @@ public class CollectChecker : MonoBehaviour
         bridgePlatform.transform.DOMoveY(-0.87f, 0.5f).SetEase(Ease.OutBack).OnComplete(() =>
         {
             bridgePlatform.GetComponent<MeshRenderer>().material.color = color;
+            _gateAnimator.SetTrigger("Open");
         });
 
         yield return new WaitForSeconds(1);
         stopper.SetActive(false);
-        playerMovement = FindObjectOfType<PlayerMovement>();
         playerMovement.inCollectCheck = false;
 
     }

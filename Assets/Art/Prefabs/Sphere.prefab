@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3106858013039900678}
   - component: {fileID: 3106858013039900679}
   - component: {fileID: 3106858013039900676}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: CollectableObject
   m_Icon: {fileID: 0}

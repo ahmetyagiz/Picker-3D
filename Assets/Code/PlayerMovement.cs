@@ -65,11 +65,18 @@ public class PlayerMovement : MonoBehaviour
             pusherCube.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 4.5f);
             pusherCube.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 15);
         }
+
+        if (other.gameObject.CompareTag("Dropper"))
+        {
+            DropperManager currentDropper = other.GetComponent<DropperManager>();
+            currentDropper.GetComponent<BoxCollider>().enabled = false;
+            currentDropper.StartCoroutine(currentDropper.DropObjectRoutine());
+        }
     }
 
     public IEnumerator LoseRoutine()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2.5f);
         losePanel.SetActive(true);
     }
 }

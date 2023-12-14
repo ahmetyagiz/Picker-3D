@@ -6,15 +6,16 @@ TagManager:
   tags:
   - CollectCheck
   - CollectableObject
+  - Dropper
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
   - 
-  - Ground
+  - 
   - PusherCube
   - Collectables
   - 

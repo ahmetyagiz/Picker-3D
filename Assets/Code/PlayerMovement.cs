@@ -68,8 +68,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("Dropper"))
         {
-            DropperManager currentDropper = other.GetComponent<DropperManager>();
-            currentDropper.GetComponent<BoxCollider>().enabled = false;
+            other.GetComponent<BoxCollider>().enabled = false;
+
+            DropperManager currentDropper = other.transform.parent.GetComponent<DropperManager>();
             currentDropper.StartCoroutine(currentDropper.DropObjectRoutine());
         }
     }

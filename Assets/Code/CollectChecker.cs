@@ -3,6 +3,7 @@ using TMPro;
 using DG.Tweening;
 using System.Collections;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class CollectChecker : MonoBehaviour
 {
@@ -17,7 +18,9 @@ public class CollectChecker : MonoBehaviour
     private PlayerMovement playerMovement;
     [SerializeField] private bool isEndingChecker;
     [SerializeField] private UnityEvent winEvent;
-
+    [SerializeField] private Image progressImage;
+    [SerializeField] private Color progressBarColor;
+    
     private void Start()
     {
         counterText.text = collectIndex + " / " + collectGoal;
@@ -61,6 +64,7 @@ public class CollectChecker : MonoBehaviour
         {
             playerMovement.inCollectCheck = false;
         }
+        progressImage.color = progressBarColor;
         stopper.SetActive(false);
     }
 }

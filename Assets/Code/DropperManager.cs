@@ -20,13 +20,13 @@ public class DropperManager : MonoBehaviour
         {
             Vector3 dropPoint = new Vector3(dropperModel.transform.position.x, 10 /* spline offseti alabilirim*/, dropperModel.transform.position.z);
             Instantiate(dropObject, dropPoint, Quaternion.identity);
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
     public void StopDropObject()
     {
         isDropping = false;
-        transform.DOMoveY(transform.position.y + 30, 1.5f);
+        transform.DOMoveY(transform.position.y + 30, 1f);
     }
 }

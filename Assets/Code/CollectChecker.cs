@@ -7,17 +7,18 @@ using UnityEngine.UI;
 
 public class CollectChecker : MonoBehaviour
 {
+    [Header("Collect Details")]
     [SerializeField] private TextMeshProUGUI counterText;
     [SerializeField] private int collectIndex;
     [SerializeField] private int collectGoal;
+
+    [Header("--")]
     [SerializeField] private GameObject bridgePlatform;
     [SerializeField] private GameObject stopper;
     [SerializeField] private Animator _gateAnimator;
     [SerializeField] private Color color;
-    private bool isLevelCompleted;
     private PlayerMovement playerMovement;
     [SerializeField] private bool isEndingChecker;
-    [SerializeField] private UnityEvent winEvent;
     [SerializeField] private Image progressImage;
     [SerializeField] private Color progressBarColor;
     
@@ -34,12 +35,14 @@ public class CollectChecker : MonoBehaviour
             collectIndex++;
             counterText.text = collectIndex + " / " + collectGoal;
 
-            if (collectIndex == collectGoal && !isLevelCompleted)
+            if (collectIndex == collectGoal)
             {
                 playerMovement.StopAllCoroutines();
 
                 StartCoroutine(nameof(CompleteRoutine));
             }
+
+            Destroy(other.gameObject, 0.65f);
         }
     }
 
@@ -47,7 +50,6 @@ public class CollectChecker : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
-        isLevelCompleted = true;
         bridgePlatform.transform.DOMoveY(-0.87f, 0.5f).SetEase(Ease.OutBack).OnComplete(() =>
         {
             bridgePlatform.GetComponent<MeshRenderer>().material.color = color;
@@ -56,14 +58,7 @@ public class CollectChecker : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        if (isEndingChecker)
-        {
-            winEvent.Invoke();
-        }
-        else
-        {
-            playerMovement.inCollectCheck = false;
-        }
+        playerMovement.inCollectCheck = false;
         progressImage.color = progressBarColor;
         stopper.SetActive(false);
     }

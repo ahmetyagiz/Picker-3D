@@ -1,6 +1,8 @@
 using DG.Tweening;
 using System.Collections;
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Lose Panel")]
     [SerializeField] private GameObject losePanel;
+    [SerializeField] private UnityEvent winPanel;
 
     [Header("Others")]
     [SerializeField] private GameObject pusherCube;
@@ -60,10 +63,13 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(nameof(LoseRoutine));
 
+            pusherCube.SetActive(true);
             inCollectCheck = true;
             rb.velocity = Vector3.zero;
             pusherCube.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 4.5f);
             pusherCube.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 15);
+
+            Invoke(nameof(ResetPusher), 1.5f);
         }
 
         if (other.gameObject.CompareTag("Dropper"))
@@ -73,8 +79,18 @@ public class PlayerMovement : MonoBehaviour
             DropperManager currentDropper = other.transform.parent.GetComponent<DropperManager>();
             currentDropper.StartCoroutine(currentDropper.DropObjectRoutine());
         }
+
+        if (other.gameObject.CompareTag("LevelComplete"))
+        {
+            winPanel.Invoke();
+            inCollectCheck = true;
+        }
     }
 
+    void ResetPusher()  
+    {
+        pusherCube.SetActive(false);
+    }
     public IEnumerator LoseRoutine()
     {
         yield return new WaitForSeconds(2.5f);

@@ -50,7 +50,7 @@ public class CollectChecker : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
-        bridgePlatform.transform.DOMoveY(-0.87f, 0.5f).SetEase(Ease.OutBack).OnComplete(() =>
+        bridgePlatform.transform.DOMoveY(-0.87f, 0.5f).SetEase(Ease.OutBack,3f).OnComplete(() =>
         {
             bridgePlatform.GetComponent<MeshRenderer>().material.color = color;
             _gateAnimator.SetTrigger("Open");

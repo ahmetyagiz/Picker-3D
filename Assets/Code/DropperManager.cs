@@ -1,15 +1,46 @@
 ﻿using DG.Tweening;
 using Dreamteck.Splines;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+public enum DropObject
+{
+    Cube,
+    Sphere,
+    Cone
+}
 
 public class DropperManager : MonoBehaviour
 {
-    [SerializeField] private GameObject dropObject;
+    [Header("Object Prefabs")]
+    [SerializeField] private GameObject cubePrefab;
+    [SerializeField] private GameObject spherePrefab;
+    [SerializeField] private GameObject conePrefab;
+
+    [Header("Select Drop Object")]
+    public DropObject dropObject;
+
+    [Header("Pathing")]
     [SerializeField] private GameObject dropperModel;
     [SerializeField] private SplineFollower splineFollower;
     public bool isDropping;
+    private GameObject selectedDropObject;
+
+    private void Start()
+    {
+        switch (dropObject)
+        {
+            case DropObject.Cube:
+                selectedDropObject = cubePrefab;
+                break;
+            case DropObject.Sphere:
+                selectedDropObject = spherePrefab;
+                break;
+            case DropObject.Cone:
+                selectedDropObject = conePrefab;
+                break;
+        }
+    }
 
     public IEnumerator DropObjectRoutine()
     {
@@ -19,8 +50,8 @@ public class DropperManager : MonoBehaviour
         while (isDropping)
         {
             Vector3 dropPoint = new Vector3(dropperModel.transform.position.x, 10 /* spline offseti alabilirim*/, dropperModel.transform.position.z);
-            Instantiate(dropObject, dropPoint, Quaternion.identity);
-            yield return new WaitForSeconds(0.05f);
+            Instantiate(selectedDropObject, dropPoint, Quaternion.identity);
+            yield return new WaitForSeconds(0.06f);
         }
     }
 

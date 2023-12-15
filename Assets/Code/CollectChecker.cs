@@ -60,6 +60,7 @@ public class CollectChecker : MonoBehaviour
 
         playerMovement.inCollectCheck = false;
         progressImage.color = progressBarColor;
+        progressImage.GetComponent<Shadow>().enabled = true;
         stopper.SetActive(false);
     }
 }

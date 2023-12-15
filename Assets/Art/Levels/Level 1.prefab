@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 5686808738983489877}
   m_Layer: 7
   m_Name: -First Platform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -925,7 +925,7 @@ GameObject:
   - component: {fileID: 5686808739076606212}
   m_Layer: 7
   m_Name: -Third Platform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1282,7 +1282,6 @@ MonoBehaviour:
   bridgePlatform: {fileID: 5686808740645159776}
   stopper: {fileID: 5686808738964276632}
   _gateAnimator: {fileID: 5686808739543874811}
-  color: {r: 0.1882353, g: 0.5764706, b: 0.22352941, a: 0}
   isEndingChecker: 0
   progressImage: {fileID: 8159557194308187030}
   progressBarColor: {r: 1, g: 0.38431376, b: 0.19607845, a: 1}
@@ -2917,7 +2916,7 @@ GameObject:
   - component: {fileID: 5686808740211303818}
   m_Layer: 7
   m_Name: -Second Platform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3613,7 +3612,7 @@ GameObject:
   - component: {fileID: 5686808740577362187}
   m_Layer: 7
   m_Name: -Fourth Platform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6662,7 +6661,6 @@ MonoBehaviour:
   bridgePlatform: {fileID: 8159557192529397173}
   stopper: {fileID: 8159557193048381420}
   _gateAnimator: {fileID: 8159557192710131714}
-  color: {r: 0.1882353, g: 0.5764706, b: 0.22352941, a: 0}
   isEndingChecker: 0
   progressImage: {fileID: 8159557193217683967}
   progressBarColor: {r: 1, g: 0.38431376, b: 0.19607845, a: 1}
@@ -8967,7 +8965,6 @@ MonoBehaviour:
   bridgePlatform: {fileID: 8159557192639679946}
   stopper: {fileID: 8159557192896436719}
   _gateAnimator: {fileID: 5686808740824300919}
-  color: {r: 0.1882353, g: 0.5764706, b: 0.22352941, a: 0}
   isEndingChecker: 1
   progressImage: {fileID: 5686808738895726461}
   progressBarColor: {r: 1, g: 0.38431376, b: 0.19607845, a: 1}

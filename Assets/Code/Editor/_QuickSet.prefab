@@ -46,21 +46,21 @@ MonoBehaviour:
   HasBeenInitialized: 1
   ObjectGroups:
   - GOs:
-    - IsSelected: 1
+    - IsSelected: 0
       GO: {fileID: 3106858013039900698, guid: cb7268e8fac9f544b97015eb12a325da, type: 3}
     - IsSelected: 0
       GO: {fileID: 3106858013039900698, guid: 46d66466cd4330a4d868568d141220e5, type: 3}
-    - IsSelected: 0
-      GO: {fileID: 3106858013039900698, guid: cb7268e8fac9f544b97015eb12a325da, type: 3}
+    - IsSelected: 1
+      GO: {fileID: 3106858013039900698, guid: de618e851933ce54eb03319825100cce, type: 3}
     GroupParent: {fileID: 0}
     IsOpen: 1
     GroupName: ObjectGroup0
-  SelectedObjectId: {x: 0, y: 0}
+  SelectedObjectId: {x: 0, y: 2}
   RayMask:
     serializedVersion: 2
     m_Bits: 4294967295
   Offset: {x: 0, y: 0, z: 0}
-  Rotation: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 15, z: 0}
   Scale: {x: 1, y: 1, z: 1}
   SnapX: 1
   SnapY: 0

@@ -57,7 +57,11 @@ public class DropperManager : MonoBehaviour
 
     public void StopDropObject()
     {
+        //Debug.Log("Yol bitti");
+        splineFollower.follow = false;
         isDropping = false;
+        //dropperModel.transform.position = new Vector3(dropperModel.transform.position.x, 10, dropperModel.transform.position.z) ;
+        ////splineFollower.follow = false;
         transform.DOMoveY(transform.position.y + 30, 1f);
     }
 }

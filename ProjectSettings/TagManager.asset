@@ -8,6 +8,8 @@ TagManager:
   - CollectableObject
   - Dropper
   - LevelComplete
+  - BigObject
+  - Ground
   layers:
   - Default
   - TransparentFX

@@ -85,6 +85,12 @@ public class PlayerMovement : MonoBehaviour
             winPanel.Invoke();
             inCollectCheck = true;
         }
+
+        if (other.gameObject.CompareTag("BigObject"))
+        {
+            other.transform.GetChild(0).gameObject.SetActive(false);
+            other.transform.GetChild(1).gameObject.SetActive(true);
+        }
     }
 
     void ResetPusher()  

@@ -15,7 +15,7 @@ public class LevelEditor : EditorWindow
     private void OnGUI()
     {
         GUILayout.Label("Select a level to edit:", EditorStyles.boldLabel);
-        prefabObject = EditorGUILayout.ObjectField("Prefab:", prefabObject, typeof(GameObject), false) as GameObject;
+        prefabObject = EditorGUILayout.ObjectField("Level Prefab:", prefabObject, typeof(GameObject), false) as GameObject;
 
         if (GUILayout.Button("Create Selected Level") && prefabObject != null)
         {

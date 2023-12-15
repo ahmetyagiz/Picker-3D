@@ -16,7 +16,7 @@ public class CollectChecker : MonoBehaviour
     [SerializeField] private GameObject bridgePlatform;
     [SerializeField] private GameObject stopper;
     [SerializeField] private Animator _gateAnimator;
-    [SerializeField] private Color color;
+    private Color transitionColor;
     private PlayerMovement playerMovement;
     [SerializeField] private bool isEndingChecker;
     [SerializeField] private Image progressImage;
@@ -26,6 +26,7 @@ public class CollectChecker : MonoBehaviour
     {
         counterText.text = collectIndex + " / " + collectGoal;
         playerMovement = FindObjectOfType<PlayerMovement>();
+        transitionColor = GameObject.FindGameObjectWithTag("Ground").GetComponent<MeshRenderer>().material.color;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,7 +53,7 @@ public class CollectChecker : MonoBehaviour
 
         bridgePlatform.transform.DOMoveY(-0.87f, 0.5f).SetEase(Ease.OutBack,3f).OnComplete(() =>
         {
-            bridgePlatform.GetComponent<MeshRenderer>().material.color = color;
+            bridgePlatform.GetComponent<MeshRenderer>().material.color = transitionColor;
             _gateAnimator.SetTrigger("Open");
         });
 

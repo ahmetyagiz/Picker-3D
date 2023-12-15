@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3106858013039900673}
   - component: {fileID: 3106858013039900678}
   - component: {fileID: 3106858013039900679}
-  - component: {fileID: 3106858013039900676}
+  - component: {fileID: 4043194261909514475}
   m_Layer: 9
   m_Name: ConePrefab
   m_TagString: CollectableObject
@@ -97,8 +97,8 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!135 &3106858013039900676
-SphereCollider:
+--- !u!64 &4043194261909514475
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -107,6 +107,7 @@ SphereCollider:
   m_Material: {fileID: 13400000, guid: e5a32a8cde461be47ac60b0c4c7ff9d3, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2934717439318261032, guid: 7da954678491de343ba21439e8dc3ebb, type: 3}

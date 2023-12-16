@@ -19,12 +19,12 @@ public class PlayerMovement : MonoBehaviour
     [Header("Others")]
     [SerializeField] private GameObject pusherCube;
     public bool inCollectCheck;
+    private CameraFollow cameraFollow;
 
-    public CameraFollow cam;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        cam = FindObjectOfType<CameraFollow>();
+        cameraFollow = FindObjectOfType<CameraFollow>();
     }
 
     private void FixedUpdate()
@@ -57,14 +57,14 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (inCollectCheck == false)
         {
-            Vector3 localVelocity =  new Vector3(0, 0, forwardSpeed);
+            Vector3 localVelocity = new Vector3(0, 0, forwardSpeed);
             rb.velocity = transform.TransformDirection(localVelocity);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("CollectCheck"))
+        if (other.CompareTag("CollectCheck"))
         {
             StartCoroutine(nameof(LoseRoutine));
 
@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(ResetPusher), 1.5f);
         }
 
-        if (other.gameObject.CompareTag("Dropper"))
+        if (other.CompareTag("Dropper"))
         {
             other.GetComponent<BoxCollider>().enabled = false;
 
@@ -85,63 +85,48 @@ public class PlayerMovement : MonoBehaviour
             currentDropper.StartCoroutine(currentDropper.DropObjectRoutine());
         }
 
-        if (other.gameObject.CompareTag("LevelComplete"))
+        if (other.CompareTag("LevelComplete"))
         {
             winPanel.Invoke();
             inCollectCheck = true;
         }
 
-        if (other.gameObject.CompareTag("BigObject"))
+        if (other.CompareTag("BigObject"))
         {
             other.transform.GetChild(0).gameObject.SetActive(false);
             other.transform.GetChild(1).gameObject.SetActive(true);
         }
 
-        if (other.gameObject.CompareTag("TurnTrigger"))
+        if (other.CompareTag("TurnTrigger"))
         {
             CurveRoadType curveRoadType = other.GetComponent<CurveRoadType>();
 
             if (curveRoadType.turnType == CurveRoadType.TurnType.Left)
             {
                 Debug.Log("Sola donuluyor");
-
                 other.GetComponent<BoxCollider>().enabled = false;
-                cam.TurnLeft();
-
-                transform.DORotate(new Vector3(0, -90, 0), 1).OnComplete(() =>
-                {
-                    cam.turnDefault = false;
-                    cam.turnRight = false;
-                    cam.turnLeft = true;
-
-                    cam.transform.parent = null;
-                    cam.follow = true;
-                });
+                RotateTowards(-transform.right);
+                cameraFollow.TurnLeft(other.transform.GetChild(0));
             }
             else if (curveRoadType.turnType == CurveRoadType.TurnType.Right)
             {
                 Debug.Log("Saga donuluyor");
-
                 other.GetComponent<BoxCollider>().enabled = false;
-                cam.TurnRight();
-                transform.DORotate(new Vector3(0, 0, 0), 1).OnComplete(() =>
-                {
-                    cam.turnDefault = false;
-                    cam.turnLeft = false;
-                    cam.turnRight = true;
-
-                    cam.transform.parent = null;
-                    cam.follow = true;
-                });
+                RotateTowards(transform.right);
+                cameraFollow.TurnRight(other.transform.GetChild(0));
             }
         }
 
-        if (other.gameObject.CompareTag("Stickman"))
+        if (other.CompareTag("Stickman"))
         {
             other.GetComponent<Animator>().applyRootMotion = false;
         }
     }
 
+    private void RotateTowards(Vector3 direction)
+    {
+        transform.DORotateQuaternion(Quaternion.LookRotation(direction.normalized).normalized, 1.5f);
+    }
     void ResetPusher()
     {
         pusherCube.SetActive(false);

@@ -54,6 +54,8 @@ MonoBehaviour:
       GO: {fileID: 3106858013039900698, guid: de618e851933ce54eb03319825100cce, type: 3}
     - IsSelected: 0
       GO: {fileID: 8773693232612615364, guid: 32dae1b1a80eba64ebd169e00adf6251, type: 3}
+    - IsSelected: 0
+      GO: {fileID: 3106858013039900698, guid: 115bfcf3cd741fd4d82678137bf23511, type: 3}
     GroupParent: {fileID: 0}
     IsOpen: 1
     GroupName: ObjectGroup0

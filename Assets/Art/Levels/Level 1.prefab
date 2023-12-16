@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 5686808740274054896}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -490,7 +490,6 @@ MonoBehaviour:
         m_CallState: 2
   pusherCube: {fileID: 5686808739064585776}
   inCollectCheck: 0
-  cam: {fileID: 0}
 --- !u!1 &5686808738918500848
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,7 +1464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3ed4e3e7132284a9740f47adf03c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSpawner: {fileID: 0}
+  fakeLevelIndex: 0
 --- !u!1 &5686808739165960688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,13 +1737,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c96969507a6ad4eaae628a88845818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _followTarget: {fileID: 5287546015629590813}
-  _offsetZ: -17
-  targetDir: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
+  offset: {x: 0, y: 18.18, z: -16}
   follow: 1
-  turnDefault: 1
-  turnLeft: 0
-  turnRight: 0
 --- !u!1 &5686808739372668431
 GameObject:
   m_ObjectHideFlags: 0
@@ -4238,8 +4233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b5635854d355d438399ef79294bc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 0
-  nextLevel: 0
   currentLevelText: {fileID: 8159557192567849104}
   nextLevelText: {fileID: 8159557193860611330}
 --- !u!1 &5686808740770882013

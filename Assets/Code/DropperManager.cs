@@ -7,7 +7,8 @@ public enum DropObject
 {
     Cube,
     Sphere,
-    Cone
+    Cone,
+    Emoji
 }
 
 public class DropperManager : MonoBehaviour
@@ -16,6 +17,7 @@ public class DropperManager : MonoBehaviour
     [SerializeField] private GameObject cubePrefab;
     [SerializeField] private GameObject spherePrefab;
     [SerializeField] private GameObject conePrefab;
+    [SerializeField] private GameObject emojiPrefab;
 
     [Header("Select Drop Object")]
     public DropObject dropObject;
@@ -38,6 +40,9 @@ public class DropperManager : MonoBehaviour
                 break;
             case DropObject.Cone:
                 selectedDropObject = conePrefab;
+                break;
+            case DropObject.Emoji:
+                selectedDropObject = emojiPrefab;
                 break;
         }
     }

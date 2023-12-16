@@ -91,9 +91,25 @@ public class PlayerMovement : MonoBehaviour
             other.transform.GetChild(0).gameObject.SetActive(false);
             other.transform.GetChild(1).gameObject.SetActive(true);
         }
+
+        if (other.gameObject.CompareTag("TurnTrigger"))
+        {
+            CurveRoadType curveRoadType = other.GetComponent<CurveRoadType>();
+
+            if (curveRoadType.turnType == CurveRoadType.TurnType.Left)
+            {
+                Debug.Log("Sola donuluyor");
+                transform.DORotate(new Vector3(0, -90, 0), 1);
+            }
+            else if (curveRoadType.turnType == CurveRoadType.TurnType.Right)
+            {
+                Debug.Log("Saga donuluyor");
+                transform.DORotate(new Vector3(0, 90, 0), 1);
+            }
+        }
     }
 
-    void ResetPusher()  
+    void ResetPusher()
     {
         pusherCube.SetActive(false);
     }

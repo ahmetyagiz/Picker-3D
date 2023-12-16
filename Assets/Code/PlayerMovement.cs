@@ -19,11 +19,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("Others")]
     [SerializeField] private GameObject pusherCube;
     public bool inCollectCheck;
+
     private CameraFollow cameraFollow;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
         cameraFollow = FindObjectOfType<CameraFollow>();
     }
 

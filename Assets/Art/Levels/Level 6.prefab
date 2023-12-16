@@ -2909,6 +2909,7 @@ MonoBehaviour:
   target: {fileID: 0}
   offset: {x: 0, y: 18.18, z: -16}
   follow: 1
+  rightLevel: 0
 --- !u!1 &5686808739372668431
 GameObject:
   m_ObjectHideFlags: 0

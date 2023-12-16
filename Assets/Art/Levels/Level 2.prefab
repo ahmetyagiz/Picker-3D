@@ -3989,6 +3989,7 @@ GameObject:
   - component: {fileID: 5686808740740749069}
   - component: {fileID: 5686808740740749071}
   - component: {fileID: 5686808740740749070}
+  - component: {fileID: 9034548465229377196}
   m_Layer: 5
   m_Name: LevelProgressPanel
   m_TagString: Untagged
@@ -4057,6 +4058,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &9034548465229377196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686808740740749068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b5635854d355d438399ef79294bc22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  nextLevel: 0
+  currentLevelText: {fileID: 8159557194201708937}
+  nextLevelText: {fileID: 8159557192359789595}
 --- !u!1 &5686808740820220718
 GameObject:
   m_ObjectHideFlags: 0
@@ -14477,15 +14494,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b5df3ad4a2a2224f9e2ecaa02dceabf, type: 3}
---- !u!1 &4767891138693700519 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1b5df3ad4a2a2224f9e2ecaa02dceabf,
-    type: 3}
-  m_PrefabInstance: {fileID: 5686808740274054902}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5287546015629590813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1b5df3ad4a2a2224f9e2ecaa02dceabf,
+    type: 3}
+  m_PrefabInstance: {fileID: 5686808740274054902}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4767891138693700519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1b5df3ad4a2a2224f9e2ecaa02dceabf,
     type: 3}
   m_PrefabInstance: {fileID: 5686808740274054902}
   m_PrefabAsset: {fileID: 0}

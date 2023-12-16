@@ -4157,6 +4157,7 @@ GameObject:
   - component: {fileID: 5686808740740749069}
   - component: {fileID: 5686808740740749071}
   - component: {fileID: 5686808740740749070}
+  - component: {fileID: 3521755854330222388}
   m_Layer: 5
   m_Name: LevelProgressPanel
   m_TagString: Untagged
@@ -4225,6 +4226,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3521755854330222388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686808740740749068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b5635854d355d438399ef79294bc22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  nextLevel: 0
+  currentLevelText: {fileID: 8159557192567849104}
+  nextLevelText: {fileID: 8159557193860611330}
 --- !u!1 &5686808740770882013
 GameObject:
   m_ObjectHideFlags: 0

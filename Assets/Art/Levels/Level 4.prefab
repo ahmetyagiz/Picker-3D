@@ -1,44 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &58861623
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149214287202}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 17.32273, y: 12.51656, z: 17.042559}
-  m_Center: {x: 0, y: 5.61948, z: 0}
---- !u!65 &58861624
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149214287202}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 17.32273, y: 0.6332953, z: 17.042559}
-  m_Center: {x: 0, y: -0.6, z: 0}
---- !u!114 &58861622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149214287202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccd569cc837afba459d26a2df0b732e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnType: 1
 --- !u!1 &709534420
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,6 +597,45 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 112.55, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &58861623
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149214287202}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 17.32273, y: 12.51656, z: 17.042559}
+  m_Center: {x: 0, y: 5.61948, z: 0}
+--- !u!65 &58861624
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149214287202}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 17.32273, y: 0.6332953, z: 17.042559}
+  m_Center: {x: 0, y: -0.6, z: 0}
+--- !u!114 &58861622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149214287202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd569cc837afba459d26a2df0b732e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnType: 1
 --- !u!1 &919132149455596467
 GameObject:
   m_ObjectHideFlags: 0
@@ -6877,6 +6877,7 @@ GameObject:
   - component: {fileID: 5686808740740749069}
   - component: {fileID: 5686808740740749071}
   - component: {fileID: 5686808740740749070}
+  - component: {fileID: 1422555976601513976}
   m_Layer: 5
   m_Name: LevelProgressPanel
   m_TagString: Untagged
@@ -6945,6 +6946,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1422555976601513976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686808740740749068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b5635854d355d438399ef79294bc22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  nextLevel: 0
+  currentLevelText: {fileID: 1301611894422330603}
+  nextLevelText: {fileID: 1301611895211532665}
 --- !u!1 &5686808740820220718
 GameObject:
   m_ObjectHideFlags: 0

@@ -5128,7 +5128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3ed4e3e7132284a9740f47adf03c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSpawner: {fileID: 0}
+  fakeLevelIndex: 0
 --- !u!1 &5686808739364134389
 GameObject:
   m_ObjectHideFlags: 0
@@ -6958,8 +6958,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b5635854d355d438399ef79294bc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 0
-  nextLevel: 0
   currentLevelText: {fileID: 1301611894422330603}
   nextLevelText: {fileID: 1301611895211532665}
 --- !u!1 &5686808740820220718
@@ -27343,6 +27341,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3106858013039900678, guid: cb7268e8fac9f544b97015eb12a325da,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 87b40bd8f3bec20478d328159e25c7d9, type: 2}
     - target: {fileID: 3106858013039900698, guid: cb7268e8fac9f544b97015eb12a325da,
         type: 3}
       propertyPath: m_Name

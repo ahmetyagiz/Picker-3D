@@ -135,6 +135,11 @@ public class PlayerMovement : MonoBehaviour
                 });
             }
         }
+
+        if (other.gameObject.CompareTag("Stickman"))
+        {
+            other.GetComponent<Animator>().applyRootMotion = false;
+        }
     }
 
     void ResetPusher()

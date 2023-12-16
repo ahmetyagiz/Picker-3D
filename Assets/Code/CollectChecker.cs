@@ -4,6 +4,7 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using static ToonyColorsPro.ShaderGenerator.Enums;
 
 public class CollectChecker : MonoBehaviour
 {
@@ -29,21 +30,35 @@ public class CollectChecker : MonoBehaviour
         transitionColor = GameObject.FindGameObjectWithTag("Ground").GetComponent<MeshRenderer>().material.color;
     }
 
+    bool isCheckerCompleted;
+
+    void CollectedAnObject(GameObject other, int score)
+    {
+        collectIndex+=score;
+        counterText.text = collectIndex + " / " + collectGoal;
+
+        if (collectIndex >= collectGoal && !isCheckerCompleted)
+        {
+            playerMovement.StopAllCoroutines();
+
+            StartCoroutine(nameof(CompleteRoutine));
+
+            isCheckerCompleted = true;
+        }
+
+        Destroy(other.gameObject, 0.65f);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("CollectableObject"))
         {
-            collectIndex++;
-            counterText.text = collectIndex + " / " + collectGoal;
+            CollectedAnObject(other.gameObject, 1);
+        }
 
-            if (collectIndex == collectGoal)
-            {
-                playerMovement.StopAllCoroutines();
-
-                StartCoroutine(nameof(CompleteRoutine));
-            }
-
-            Destroy(other.gameObject, 0.65f);
+        if (other.gameObject.CompareTag("Stickman"))
+        {
+            CollectedAnObject(other.gameObject, 3);
         }
     }
 
@@ -61,7 +76,6 @@ public class CollectChecker : MonoBehaviour
 
         playerMovement.inCollectCheck = false;
         progressBarActivation.Invoke();
-        //progressImage.GetComponent<Shadow>().enabled = true;
         stopper.SetActive(false);
     }
 }

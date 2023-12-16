@@ -19,9 +19,9 @@ public class CollectChecker : MonoBehaviour
     private Color transitionColor;
     private PlayerMovement playerMovement;
     [SerializeField] private bool isEndingChecker;
-    [SerializeField] private Image progressImage;
     [SerializeField] private Color progressBarColor;
-    
+    [SerializeField] private UnityEvent progressBarActivation;
+
     private void Start()
     {
         counterText.text = collectIndex + " / " + collectGoal;
@@ -60,8 +60,8 @@ public class CollectChecker : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         playerMovement.inCollectCheck = false;
-        progressImage.color = progressBarColor;
-        progressImage.GetComponent<Shadow>().enabled = true;
+        progressBarActivation.Invoke();
+        //progressImage.GetComponent<Shadow>().enabled = true;
         stopper.SetActive(false);
     }
 }

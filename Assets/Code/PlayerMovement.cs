@@ -20,9 +20,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject pusherCube;
     public bool inCollectCheck;
 
+    public CameraFollow cam;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        cam = FindObjectOfType<CameraFollow>();
     }
 
     private void FixedUpdate()
@@ -44,16 +46,19 @@ public class PlayerMovement : MonoBehaviour
 
             if (touch.phase == TouchPhase.Moved)
             {
-                rb.velocity = new Vector3((touch.deltaPosition.x - Camera.main.ScreenToViewportPoint(Input.mousePosition).x) * sideSpeed, 0, forwardSpeed);
+                Vector3 localVelocity = new Vector3((touch.deltaPosition.x - Camera.main.ScreenToViewportPoint(Input.mousePosition).x) * sideSpeed, 0, forwardSpeed);
+                rb.velocity = transform.TransformDirection(localVelocity);
             }
             else if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Stationary)
             {
-                rb.velocity = new Vector3(0, 0, forwardSpeed);
+                Vector3 localVelocity = new Vector3(0, 0, forwardSpeed);
+                rb.velocity = transform.TransformDirection(localVelocity);
             }
         }
         else if (inCollectCheck == false)
         {
-            rb.velocity = new Vector3(0, 0, forwardSpeed);
+            Vector3 localVelocity =  new Vector3(0, 0, forwardSpeed);
+            rb.velocity = transform.TransformDirection(localVelocity);
         }
     }
 
@@ -99,12 +104,35 @@ public class PlayerMovement : MonoBehaviour
             if (curveRoadType.turnType == CurveRoadType.TurnType.Left)
             {
                 Debug.Log("Sola donuluyor");
-                transform.DORotate(new Vector3(0, -90, 0), 1);
+
+                other.GetComponent<BoxCollider>().enabled = false;
+                cam.TurnLeft();
+
+                transform.DORotate(new Vector3(0, -90, 0), 1).OnComplete(() =>
+                {
+                    cam.turnDefault = false;
+                    cam.turnRight = false;
+                    cam.turnLeft = true;
+
+                    cam.transform.parent = null;
+                    cam.follow = true;
+                });
             }
             else if (curveRoadType.turnType == CurveRoadType.TurnType.Right)
             {
                 Debug.Log("Saga donuluyor");
-                transform.DORotate(new Vector3(0, 90, 0), 1);
+
+                other.GetComponent<BoxCollider>().enabled = false;
+                cam.TurnRight();
+                transform.DORotate(new Vector3(0, 0, 0), 1).OnComplete(() =>
+                {
+                    cam.turnDefault = false;
+                    cam.turnLeft = false;
+                    cam.turnRight = true;
+
+                    cam.transform.parent = null;
+                    cam.follow = true;
+                });
             }
         }
     }
@@ -113,6 +141,7 @@ public class PlayerMovement : MonoBehaviour
     {
         pusherCube.SetActive(false);
     }
+
     public IEnumerator LoseRoutine()
     {
         yield return new WaitForSeconds(2.5f);

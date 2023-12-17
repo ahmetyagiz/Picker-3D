@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
         if (fakeLevelIndex == 0)
         {
             PlayerPrefs.SetInt("FakeLevelIndex", 1);
+            fakeLevelIndex = 1;
         }
     }
     public void SceneRestart()

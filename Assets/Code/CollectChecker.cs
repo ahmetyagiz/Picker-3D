@@ -4,7 +4,7 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using static ToonyColorsPro.ShaderGenerator.Enums;
+using System.Collections.Generic;
 
 public class CollectChecker : MonoBehaviour
 {
@@ -22,6 +22,7 @@ public class CollectChecker : MonoBehaviour
     [SerializeField] private bool isEndingChecker;
     [SerializeField] private Color progressBarColor;
     [SerializeField] private UnityEvent progressBarActivation;
+    public List<GameObject> collectedObjects;
 
     private void Start()
     {
@@ -34,8 +35,10 @@ public class CollectChecker : MonoBehaviour
 
     void CollectedAnObject(GameObject other, int score)
     {
-        collectIndex+=score;
+        collectIndex += score;
         counterText.text = collectIndex + " / " + collectGoal;
+        collectedObjects.Add(other);
+        other.GetComponent<MeshRenderer>().material.color = transitionColor;
 
         if (collectIndex >= collectGoal && !isCheckerCompleted)
         {
@@ -45,8 +48,6 @@ public class CollectChecker : MonoBehaviour
 
             isCheckerCompleted = true;
         }
-
-        Destroy(other.gameObject, 0.65f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -64,11 +65,19 @@ public class CollectChecker : MonoBehaviour
 
     IEnumerator CompleteRoutine()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1f);
 
-        bridgePlatform.transform.DOMoveY(-0.87f, 0.5f).SetEase(Ease.OutBack,3f).OnComplete(() =>
+        foreach (GameObject obj in collectedObjects)
         {
-            bridgePlatform.GetComponent<MeshRenderer>().material.color = transitionColor;
+            obj.SetActive(false);
+        }
+
+        bridgePlatform.GetComponent<MeshRenderer>().material.color = transitionColor;
+
+        yield return new WaitForSeconds(0.1f);
+
+        bridgePlatform.transform.DOMoveY(-0.87f, 0.5f).SetEase(Ease.OutBack, 3f).OnComplete(() =>
+        {
             _gateAnimator.SetTrigger("Open");
         });
 

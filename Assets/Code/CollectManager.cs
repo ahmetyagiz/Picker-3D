@@ -67,14 +67,14 @@ public class CollectManager : MonoBehaviour
 
             if (curveRoadType.turnType == CurveRoadType.TurnType.Left)
             {
-                Debug.Log("Sola donuluyor");
+                //Debug.Log("Sola donuluyor");
                 other.GetComponent<BoxCollider>().enabled = false;
                 RotateTowards(-transform.right);
                 cameraFollow.TurnLeft(other.transform.GetChild(0));
             }
             else if (curveRoadType.turnType == CurveRoadType.TurnType.Right)
             {
-                Debug.Log("Saga donuluyor");
+                //Debug.Log("Saga donuluyor");
                 other.GetComponent<BoxCollider>().enabled = false;
                 RotateTowards(transform.right);
                 cameraFollow.TurnRight(other.transform.GetChild(0));

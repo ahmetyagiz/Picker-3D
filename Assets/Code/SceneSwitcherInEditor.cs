@@ -36,8 +36,6 @@ public class SceneSwitcherInEditor: MonoBehaviour
 
     void SwitchToScene()
     {
-        PlayerPrefs.SetInt("RandomLevels", 0);
-
         int sceneIndex;
         int mod = 0;
 
@@ -48,6 +46,7 @@ public class SceneSwitcherInEditor: MonoBehaviour
             //Scene index pozitifse
             if (sceneIndex - 1 >= 0)
             {
+                PlayerPrefs.SetInt("RandomLevels", 0);
                 PlayerPrefs.SetInt("SceneIndex", sceneIndex - 1);
 
                 if (sceneIndex > sceneCount)

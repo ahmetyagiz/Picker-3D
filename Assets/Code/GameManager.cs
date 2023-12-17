@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
             levelIndex = tempInt;
         }
 
-        Debug.Log("Selected scene index: " + levelIndex);
+        //Debug.Log("Selected scene index: " + levelIndex);
 
         PlayerPrefs.SetInt("FakeLevelIndex", fakeLevelIndex);
         PlayerPrefs.SetInt("SceneIndex", levelIndex);

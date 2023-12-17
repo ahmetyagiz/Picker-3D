@@ -19,30 +19,35 @@ public class CollectChecker : MonoBehaviour
     [SerializeField] private Animator _gateAnimator;
     private Color transitionColor;
     private PlayerMovement playerMovement;
+    private CollectManager collectManager;
     [SerializeField] private bool isEndingChecker;
     [SerializeField] private Color progressBarColor;
     [SerializeField] private UnityEvent progressBarActivation;
-    public List<GameObject> collectedObjects;
+    [SerializeField] private List<GameObject> collectedObjects;
 
     private void Start()
     {
         counterText.text = collectIndex + " / " + collectGoal;
         playerMovement = FindObjectOfType<PlayerMovement>();
+        collectManager = FindObjectOfType<CollectManager>();
         transitionColor = GameObject.FindGameObjectWithTag("Ground").GetComponent<MeshRenderer>().material.color;
     }
 
     bool isCheckerCompleted;
 
-    void CollectedAnObject(GameObject other, int score)
+    void CollectedAnObject(GameObject other, int score, bool yes)
     {
         collectIndex += score;
         counterText.text = collectIndex + " / " + collectGoal;
         collectedObjects.Add(other);
+        if (yes)
+        {
         other.GetComponent<MeshRenderer>().material.color = transitionColor;
+        }
 
         if (collectIndex >= collectGoal && !isCheckerCompleted)
         {
-            playerMovement.StopAllCoroutines();
+            collectManager.StopAllCoroutines();
 
             StartCoroutine(nameof(CompleteRoutine));
 
@@ -54,12 +59,12 @@ public class CollectChecker : MonoBehaviour
     {
         if (other.gameObject.CompareTag("CollectableObject"))
         {
-            CollectedAnObject(other.gameObject, 1);
+            CollectedAnObject(other.gameObject, 1, true);
         }
 
         if (other.gameObject.CompareTag("Stickman"))
         {
-            CollectedAnObject(other.gameObject, 3);
+            CollectedAnObject(other.gameObject, 3, false);
         }
     }
 
@@ -83,7 +88,7 @@ public class CollectChecker : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        playerMovement.inCollectCheck = false;
+        collectManager.inCollectCheck = false;
         progressBarActivation.Invoke();
         stopper.SetActive(false);
     }

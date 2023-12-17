@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private int levelIndex;
+    public int levelIndex;
     public int fakeLevelIndex;
     private LevelSpawner levelSpawner;
 

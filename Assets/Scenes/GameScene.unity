@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 819282764}
   - component: {fileID: 819282765}
+  - component: {fileID: 819282766}
   m_Layer: 0
   m_Name: LevelSpawner
   m_TagString: Untagged
@@ -166,3 +167,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelData: {fileID: 11400000, guid: 89e185e07b9903846a76acea0d7c1bdd, type: 2}
   selectedSceneIndex: 0
+--- !u!114 &819282766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819282763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70d0cb9abe10af247a8310fefab08f38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentInput: 
+  inputDelay: 1
+  lastInputTime: 0
+  levelData: {fileID: 11400000, guid: 89e185e07b9903846a76acea0d7c1bdd, type: 2}

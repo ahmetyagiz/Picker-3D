@@ -180,6 +180,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentInput: 
-  inputDelay: 1
+  inputDelay: 1.5
   lastInputTime: 0
   levelData: {fileID: 11400000, guid: 89e185e07b9903846a76acea0d7c1bdd, type: 2}

@@ -5,9 +5,3 @@
 - Klavyeden girilen seviyenin açılması için *Game* ekranı kullanılması gerekiyor.
   
 - Oyun `GameScene` sahnesinde oynanıyor, seviyeler ise `LevelEditor` sahnesinde hazırlanıyor.
-
----
-
-Umarım beğenirsiniz, Teşekkürler.
-
-Ahmet,
